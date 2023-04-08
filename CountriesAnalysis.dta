@@ -214,7 +214,3 @@ ln_CO2perC~a | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
 ------------------------------------------------------------------------------
 
 */
-
-order country year countrycode GDPperCap CO2Total
-
-xtreg ln_CO2perCapita lnGDPperCap i.id, year
