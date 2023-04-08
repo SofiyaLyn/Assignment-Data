@@ -66,7 +66,13 @@ ln_CO2perC~a | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
 . 
 */
 
-*Preparing variables for FD model
+*Preparing variables for FD and FE model
+
+egen id = group(country)
+tab id
+lab var id "ID of country"
+
+xtset id year, yearly
 
 gen d_ln_CO2perCapita = d.ln_CO2perCapita
 gen d_lnGDPperCap= d.lnGDPperCap
@@ -147,13 +153,6 @@ d_lnGDPperCap |
 -------------------------------------------------------------------------------
 
 */
-
-*Preparing variables for FE
-egen id = group(country)
-tab id
-lab var id "ID of country"
-
-xtset id year, yearly
 
 *Fixed Effect Model for time
 
